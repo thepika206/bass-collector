@@ -1,9 +1,10 @@
-bass-container {
+.bass-container {
   padding: 35px 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border: 1px solid red;
 }
 
 .bass-img {
