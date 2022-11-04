@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from django.http import HttpResponse
+
 
 # Create your views here.
 
@@ -23,7 +23,8 @@ basses = [
 
 # home view
 def home(request):
-  return HttpResponse('<h1>hello bass</h1>')
+  return render(request, 'home.html')
+
 
 # about view
 def about(request):
