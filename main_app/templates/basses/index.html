@@ -24,13 +24,13 @@
     <div class="card">
       <div class="card-content">
         <div class="card-img-container">
-          <img 
+          {% comment %} <img 
             src="{% static 'images/' %}{{bass.image}}"
             alt="A bass guitar"
-          >
+          > {% endcomment %}
         </div>
-        <h2 class="card-title">{{ bass.model }}</h2>
-        <p>A {{ bass.strings }}-string bass by {{ bass.manufacturer }}</p>
+        <h2 class="card-title">{{ bass.manufacturer }}-{{ bass.model }}</h2>
+        <p>{{ bass.description }}</p>
       </div>
     </div>
   {% endfor %}

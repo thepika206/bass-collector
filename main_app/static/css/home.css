@@ -23,8 +23,9 @@ main > section {
   max-width: 375px;
 }
 
-.cat-container {
-  width: 80%;
+.bass-container {
+  /* width: 80%; */
+  width: 50%;
 }
 
 .login {
