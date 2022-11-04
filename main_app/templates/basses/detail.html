@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet" 
+  type="text/css" 
+  href="{% static 'css/basses/bass-detail.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="bass-container">
+  <div class="bass-img">
+    <img 
+      src="{% static 'images/bass_logo.svg' %}" 
+      alt="A bass guitar"
+    >
+  </div>
+  <div class="bass-details">
+    <h1>{{ bass.manufacturer }}-{{ bass.model }}</h1>
+    <p>{{ bass.description }}</p>
+  </div>
+</section>
+
+{% endblock %}
