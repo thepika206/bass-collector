@@ -26,9 +26,10 @@ body {
     'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 
     'Helvetica Neue', sans-serif;
   min-height: 100vh;
-  --nav-bg: rgba(104, 197, 248, .7);
-  --nav-bg-ff: rgba(104, 197, 248, .9);
-  --borders: rgb(36, 116, 248) solid 2px;
+  --nav-bg: rgba(163, 164, 165, .7);
+  --nav-bg-ff: rgba(163, 164, 165, .7);
+  /* --borders: rgb(36, 116, 248) solid 2px; */
+  --borders: rgb(95, 95, 95) solid 2px;
   --text-color: rgb(17, 20, 17);
   --link-hover-color: rgb(16, 56, 158);
   --button-bg: rgb(245, 245, 245);
@@ -96,7 +97,15 @@ nav li {
 .header-logo-container {
   margin: auto;
   padding: 10px 20px 0;
+  height: 50px;
   max-width: 500px;
+}
+
+#brand-logo {
+  margin-top: 5px;
+  height: 5vw;
+  max-height: 50px;
+  /* border: 1px solid red; */
 }
 
 .page-header {
@@ -182,8 +191,8 @@ nav li {
   }
 
   /* visual fix to help align logo */
-  .header-logo-container {
-    padding-top: 3px;
+  #brand-logo {
+    /* padding-top: 30px; */
   }
 
   nav {
@@ -224,7 +233,7 @@ nav li {
 
 @media only screen and (min-width: 1024px) {
   main {
-    min-height: calc(100vh - 55px);
+    min-height: calc(100vh - 70px);
   }
   
   header {
@@ -251,8 +260,8 @@ nav li {
   .header-logo-container {
     /* visual fix to help align logo */
     padding-top: 6px;
-    width: 340px;
-    height: 50px;
+    width: 390px;
+    height: 70px;
   }
 
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
@@ -263,7 +272,7 @@ nav li {
 
     nav,
     .header-logo-container {
-      background: rgba(104, 197, 248, .6);
+      background: rgba(163, 164, 165, .7);
       -webkit-backdrop-filter: blur(3px);
       backdrop-filter: blur(3px);
     }
