@@ -19,16 +19,19 @@
 <body>
   <header>
     <div class='header-logo-container'>
-      <img 
-      id = "brand-logo"
-      src="{% static 'images/bass-collector1.png' %}"
-      alt="The Bass Collector Logo"
-      >
+      <a href="/">
+        <img 
+        id = "brand-logo"
+        src="{% static 'images/bass-collector1.png' %}"
+        alt="The Bass Collector Logo"
+        >
+      </a>
     </div>
     <nav>
       <ul>
-        <li><a href="/basses">Basses</a></li>
-        <li><a href="/about">About</a></li>
+        <li><a href="{% url 'basses_index'%}">Basses</a></li>
+        <li><a href="{% url 'basses_create'%}">Add a Bass</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
       </ul>
     </nav>
   </header>
