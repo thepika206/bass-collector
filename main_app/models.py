@@ -8,7 +8,7 @@ class Bass(models.Model):
   description = models.CharField(max_length=250)
 
   def __str__(self):
-    return self.model
+    return self.model_name
 
   def get_absolute_url(self):
     return reverse('basses_detail', kwargs={'bass_id': self.id})
@@ -19,7 +19,7 @@ class Amp(models.Model):
   description = models.CharField(max_length=250)
 
   def __str__(self):
-    return self.model
+    return self.model_name
 
   def get_absolute_url(self):
     return reverse('amps_detail', kwargs={'amp_id': self.id})

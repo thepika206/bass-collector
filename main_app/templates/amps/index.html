@@ -12,23 +12,18 @@
 {% block content %}
 
 
+<h1>Amps List</h1>
 <section class="card-container">
-  <h1>Amps List</h1>
   {% for amp in amps %}
     <div class="card">
-      <h1>an amp card here</h1>
-      {% comment %} <a href="{% url 'basses_detail' bass.id %}">
+      <a href="">
         <div class="card-content">
           <div class="card-img-container">
-            <img 
-              src="{% static 'images/bass_logo.svg' %}"
-              alt="A bass guitar"
-            >
           </div>
-          <h2 class="card-title">{{ bass.manufacturer }}-{{ bass.model }}</h2>
-          <p>{{ bass.description }}</p>
+          <h2 class="card-title">{{ amp.manufacturer }}-{{ amp.model_name }}</h2>
+          <p>{{ amp.description }}</p>
         </div>
-      </a> {% endcomment %}
+      </a>
     </div>
   {% endfor %}
 </section>
