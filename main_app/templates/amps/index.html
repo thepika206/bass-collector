@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/basses/bass-index.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+
+<section class="card-container">
+  <h1>Amps List</h1>
+  {% for amp in amps %}
+    <div class="card">
+      <h1>an amp card here</h1>
+      {% comment %} <a href="{% url 'basses_detail' bass.id %}">
+        <div class="card-content">
+          <div class="card-img-container">
+            <img 
+              src="{% static 'images/bass_logo.svg' %}"
+              alt="A bass guitar"
+            >
+          </div>
+          <h2 class="card-title">{{ bass.manufacturer }}-{{ bass.model }}</h2>
+          <p>{{ bass.description }}</p>
+        </div>
+      </a> {% endcomment %}
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}

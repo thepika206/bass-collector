@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views.generic.edit import CreateView
 
 from .models import Bass
+from .models import Amp
+
 
 # home view
 def home(request):
@@ -27,3 +29,8 @@ class BassCreate(CreateView):
   model = Bass
   fields = '__all__'
   #? alternatively:  fields = ['manufacturer', 'model', 'description']
+
+# amps list view
+def amps_index(request):
+  amps = Amp.objects.all()
+  return render(request, 'amps/index.html', {'amps': amps})
