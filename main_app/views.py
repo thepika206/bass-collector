@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.detail import DetailView
 
 from .models import Bass
 from .models import Amp
@@ -30,7 +31,25 @@ class BassCreate(CreateView):
   fields = '__all__'
   #? alternatively:  fields = ['manufacturer', 'model', 'description']
 
+class BassUpdate(UpdateView):
+  model = Bass
+  # Let's disallow the renaming of a cat by excluding the name field!
+  fields = ['manufacturer', 'model_name', 'description']
+
+class BassDelete(DeleteView):
+  model = Bass
+  success_url = '/basses/'
+
 # amps list view
 def amps_index(request):
   amps = Amp.objects.all()
   return render(request, 'amps/index.html', {'amps': amps})
+
+class AmpCreate(CreateView):
+  model = Amp
+  fields = '__all__'
+
+def amps_detail(request, amp_id):
+  amp = Amp.objects.get(id=amp_id)
+  return render(request, 'amps/detail.html', {'amp':amp})
+  

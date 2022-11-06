@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet" 
+  type="text/css" 
+  href="{% static 'css/amps/amp-detail.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="container">
+  <div class="amp-img">
+    <img 
+      src="{% static 'images/bass_logo.svg' %}" 
+      alt="A bass guitar"
+    >
+  </div>
+  <div class="details">
+    <h1>{{ amp.manufacturer }}-{{ amp.model }}</h1>
+    <p>{{ amp.description }}</p>
+  </div>
+</section>
+
+{% endblock %}

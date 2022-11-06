@@ -5,7 +5,7 @@
 <link 
   rel="stylesheet"
   type="text/css"
-  href="{% static 'css/basses/bass-index.css' %}"
+  href="{% static 'css/amps/amp-index.css' %}"
 />
 {% endblock %}
 
@@ -16,7 +16,7 @@
 <section class="card-container">
   {% for amp in amps %}
     <div class="card">
-      <a href="">
+      <a href="{% url 'amps_detail' amp.id %}">
         <div class="card-content">
           <div class="card-img-container">
           </div>

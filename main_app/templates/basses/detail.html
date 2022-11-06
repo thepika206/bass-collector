@@ -14,13 +14,17 @@
 <section class="bass-container">
   <div class="bass-img">
     <img 
-      src="{% static 'images/bass_logo.svg' %}" 
+      src="{% static 'images/basses/fender-jazz-200.png' %}" 
       alt="A bass guitar"
     >
   </div>
   <div class="bass-details">
-    <h1>{{ bass.manufacturer }}-{{ bass.model }}</h1>
+    <h1>{{ bass.manufacturer }}-{{ bass.model_name }}</h1>
     <p>{{ bass.description }}</p>
+    <div class="bass-actions">
+      <a href="{% url 'basses_update' bass.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'basses_delete' bass.id %}" class="btn danger">Delete</a>
+    </div>
   </div>
 </section>
 

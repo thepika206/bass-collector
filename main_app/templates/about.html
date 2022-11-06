@@ -1,12 +1,24 @@
 {% extends 'base.html' %}
+{% load static %}
 
+{% block head %}
+<link 
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/about.css' %}"
+/>
+{% endblock %}
 {% block content %}
 
-<h1>About the Bass Collector</h1>
-<h3>It's all about that Bass</h3>
+<h1>About</h1>
+<h2>Discover the perfect bass rig to get the tone you crave!</h2>
 <hr />
 <p class="page-content">
-  This is your stop for the low down on bass guitars.
+  <ul>
+    <li>Add your Basses and Amps for tracking</li>
+    <li>Create awesome Bass and Amp combinations</li>
+    <li>Discover the applications for your rigs</li>
+  </ul>
 </p>
 
 {% endblock %}
