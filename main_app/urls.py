@@ -5,7 +5,7 @@ urlpatterns = [
   #? path('[http url]', views.[where in the views file], name='[reference this route from templates]' )
   path('', views.home, name='home'),
   path('about/', views.about, name='about'),
-  #! bass views
+  #! localhost:8000/basses
   path('basses/', views.basses_index, name='basses_index'),
   path('basses/<int:bass_id>/', views.basses_detail, name='basses_detail'),
   
@@ -16,7 +16,7 @@ urlpatterns = [
   
   path('basses/<int:pk>/delete/', views.BassDelete.as_view(), name='basses_delete'),
 
-  #! amp views
+  #! /amps
   path('amps/', views.amps_index, name='amps_index'),
   path('amps/create/', views.AmpCreate.as_view(), name='amps_create'),
   path('amps/<int:amp_id>/', views.amps_detail, name='amps_detail'),
