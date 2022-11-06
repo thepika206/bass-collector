@@ -8,7 +8,7 @@
 }
 
 .amp-img {
-  width: 75%;
+  width: 98%;
   max-width: 350px;
 }
 
@@ -193,13 +193,16 @@
     padding: 35px 30px;
     flex-direction: row;
     align-items: center;
-    justify-content: start;
+    justify-content: center;
   }
 
+  .details{
+    width: 50%;
+  }
   .amp-img {
-    width: 25%;
-    max-width: 250px;
-    margin-right: 25px;
+    width: 50%;
+    /* max-width: 250px; */
+    margin-right: 50px;
   }
 
   .feedings-toy-container {
