@@ -18,7 +18,14 @@ urlpatterns = [
 
   #! /amps
   path('amps/', views.amps_index, name='amps_index'),
+  
   path('amps/create/', views.AmpCreate.as_view(), name='amps_create'),
+  
   path('amps/<int:amp_id>/', views.amps_detail, name='amps_detail'),
+  
+  path('amps/<int:pk>/update/', views.AmpUpdate.as_view(), name='amps_update'),
+
+  path('amps/<int:pk>/delete/', views.AmpDelete.as_view(), name='amps_delete'),
+
   # ! comma after each route!
 ]

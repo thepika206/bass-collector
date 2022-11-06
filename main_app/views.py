@@ -53,3 +53,10 @@ def amps_detail(request, amp_id):
   amp = Amp.objects.get(id=amp_id)
   return render(request, 'amps/detail.html', {'amp':amp})
   
+class AmpUpdate(UpdateView):
+  model = Amp
+  fields = '__all__'
+
+class AmpDelete(DeleteView):
+  model = Amp
+  success_url = '/amps/'

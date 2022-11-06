@@ -7,16 +7,13 @@
 
 {% block content %}
 
+<div class="page-header">
 {% if bass %}
   <h1>Edit {{ bass.manufacturer}}-{{bass.model_name}}</h1>
 {% else %}
   <h1>Add a Bass</h1>
 {% endif %}
 
-
-
-<div class="page-header">
-  
   {% comment %} <img src="{% static '' %}" alt=""/> {% endcomment %}
 </div>
 {% comment %} 

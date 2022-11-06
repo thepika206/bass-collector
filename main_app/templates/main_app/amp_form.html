@@ -8,7 +8,12 @@
 {% block content %}
 
 <div class="page-header">
+  {% if amp %}
+  <h1>Edit {{ amp.manufacturer}}-{{amp.model_name}}</h1>
+{% else %}
   <h1>Add an Amp</h1>
+{% endif %}
+
   {% comment %} <img src="{% static '' %}" alt=""/> {% endcomment %}
 </div>
 {% comment %} 
