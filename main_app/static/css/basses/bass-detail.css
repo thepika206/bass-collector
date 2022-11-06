@@ -190,6 +190,13 @@
 }
 
 @media only screen and (min-width: 768px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
   .bass-container {
     padding: 35px 30px;
     flex-direction: row;
