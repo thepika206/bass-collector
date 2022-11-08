@@ -20,13 +20,12 @@ def home(request):
 def about(request):
   return render(request, 'about.html')
 
-# basses list view
+#! bass views
 @login_required
 def basses_index(request):
   basses = Bass.objects.filter(user=request.user)
   return render(request, 'basses/index.html', {'basses':basses})
 
-# bass details view
 @login_required
 def basses_detail(request, bass_id):
   bass = Bass.objects.get(id=bass_id)
@@ -44,7 +43,6 @@ def add_musician(request, bass_id):
     new_musician.save()
   return redirect('basses_detail', bass_id=bass_id)
 
-# add bass form... Class Based hence the (CreateView) argument that was imported above
 class BassCreate(LoginRequiredMixin, CreateView):
   model = Bass
   fields = ['manufacturer', 'model_name', 'description']
@@ -62,15 +60,18 @@ class BassDelete(LoginRequiredMixin, DeleteView):
   model = Bass
   success_url = '/basses/'
 
-# amps list view
+#! amp views
 @login_required
 def amps_index(request):
-  amps = Amp.objects.all()
+  amps = Amp.objects.filter(user=request.user)
   return render(request, 'amps/index.html', {'amps': amps})
 
 class AmpCreate(CreateView):
   model = Amp
-  fields = '__all__'
+  fields = ['manufacturer', 'model_name', 'description']
+  def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)
 
 @login_required
 def amps_detail(request, amp_id):

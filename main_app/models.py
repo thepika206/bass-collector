@@ -22,7 +22,8 @@ class Amp(models.Model):
   manufacturer = models.CharField(max_length=100)
   model_name = models.CharField(max_length=100)
   description = models.TextField(max_length=250)
-
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  
   def __str__(self):
     return self.manufacturer + ' ' + self.model_name 
 
@@ -36,5 +37,12 @@ class Musician(models.Model):
   def __str__(self):
     return self.name
 
+class Rig(models.Model):
+  name = models.CharField(max_length=100)
+  bass = models.ForeignKey(Bass, on_delete=models.CASCADE)
+  amps = models.ForeignKey(Amp, on_delete=models.CASCADE)
+  
+  def __str__(self):
+    return self.name
 
 # ! need to make migrations
