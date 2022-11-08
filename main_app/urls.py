@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
   #? path('[http url]', views.[where in the views file], name='[reference this route from templates]' )
-  path('', views.home, name='home'),
+  path('', views.Home.as_view(), name='home'),
   path('about/', views.about, name='about'),
   #! localhost:8000/basses
   path('basses/', views.basses_index, name='basses_index'),
@@ -29,6 +29,9 @@ urlpatterns = [
   path('amps/<int:pk>/update/', views.AmpUpdate.as_view(), name='amps_update'),
 
   path('amps/<int:pk>/delete/', views.AmpDelete.as_view(), name='amps_delete'),
+
+  #! /accounts
+  path('accounts/signup/', views.signup, name='signup'),
 
   # ! comma after each route!
 ]

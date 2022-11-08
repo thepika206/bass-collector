@@ -1,14 +1,19 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Bass(models.Model):
   manufacturer = models.CharField(max_length=100)
   model_name = models.CharField(max_length=100)
   description = models.TextField(max_length=250)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+  class Meta:  
+    verbose_name_plural = 'Basses'
 
   def __str__(self):
-    return self.model_name
+    return self.manufacturer + ' ' + self.model_name
 
   def get_absolute_url(self):
     return reverse('basses_detail', kwargs={'bass_id': self.id})
@@ -19,7 +24,7 @@ class Amp(models.Model):
   description = models.TextField(max_length=250)
 
   def __str__(self):
-    return self.model_name
+    return self.manufacturer + ' ' + self.model_name 
 
   def get_absolute_url(self):
     return reverse('amps_detail', kwargs={'amp_id': self.id})
