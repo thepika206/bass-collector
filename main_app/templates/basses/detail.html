@@ -27,5 +27,47 @@
     </div>
   </div>
 </section>
+<div class="feedings-toy-container">
+  <section class="feedings">
+    <div class="subsection-title">
+      <h2>Famous Musicians</h2>
+      <img 
+        src="{% static 'images/favicon-32x32.png' %}" 
+        alt="bass guitar"
+      />
+      <img 
+        src="{% static 'images/favicon-32x32.png' %}" 
+        alt="bass guitar"
+      />
+      <img 
+        src="{% static 'images/favicon-32x32.png' %}" 
+        alt="bass guitar"
+      />
+    </div>
+    <h3>Add a Musician</h3>
+    <form
+      action="{% url 'add_musician' bass.id %}"
+      method="post" 
+      class="subsection-content"
+    >
+      {% csrf_token %}
+      {{ musician_form.as_p }}
+      <button type="submit" class="btn submit">Add Musician</button>
+    </form>
+    <h3>Musicians List</h3>
+    <table>
+      <thead>
+        <tr><th>Name</th></tr>
+      </thead>
+      <tbody>
+        {% for musician in bass.musician_set.all %}
+          <tr>
+            <td>{{musician.name}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</div>
 
 {% endblock %}

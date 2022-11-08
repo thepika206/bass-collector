@@ -15,6 +15,9 @@ urlpatterns = [
   path('basses/<int:pk>/update/', views.BassUpdate.as_view(), name='basses_update'),
   
   path('basses/<int:pk>/delete/', views.BassDelete.as_view(), name='basses_delete'),
+  # localhost:8000/basses/int:bass_id/add_musician
+  path('basses/<int:bass_id>/add_musician/', views.add_musician, name='add_musician'),
+
 
   #! /amps
   path('amps/', views.amps_index, name='amps_index'),

@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 
+
 from .models import Bass
 from .models import Amp
-
+from .forms import MusicianForm
 
 # home view
 def home(request):
@@ -23,7 +24,18 @@ def basses_index(request):
 # bass details view
 def basses_detail(request, bass_id):
   bass = Bass.objects.get(id=bass_id)
-  return render(request, 'basses/detail.html', {'bass':bass})
+  musician_form = MusicianForm()
+  return render(request, 'basses/detail.html', {
+    'bass':bass, 'musician_form': musician_form
+  })
+
+def add_musician(request, bass_id):
+  form = MusicianForm(request.POST)
+  if form.is_valid():
+    new_musician = form.save(commit=False)
+    new_musician.bass_id = bass_id
+    new_musician.save()
+  return redirect('basses_detail', bass_id=bass_id)
 
 # add bass form... Class Based hence the (CreateView) argument that was imported above
 class BassCreate(CreateView):
