@@ -4,6 +4,8 @@ from django.views.generic.detail import DetailView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Bass
 from .models import Amp
@@ -19,11 +21,13 @@ def about(request):
   return render(request, 'about.html')
 
 # basses list view
+@login_required
 def basses_index(request):
-  basses = Bass.objects.all()
+  basses = Bass.objects.filter(user=request.user)
   return render(request, 'basses/index.html', {'basses':basses})
 
 # bass details view
+@login_required
 def basses_detail(request, bass_id):
   bass = Bass.objects.get(id=bass_id)
   musician_form = MusicianForm()
@@ -31,6 +35,7 @@ def basses_detail(request, bass_id):
     'bass':bass, 'musician_form': musician_form
   })
 
+@login_required
 def add_musician(request, bass_id):
   form = MusicianForm(request.POST)
   if form.is_valid():
@@ -40,7 +45,7 @@ def add_musician(request, bass_id):
   return redirect('basses_detail', bass_id=bass_id)
 
 # add bass form... Class Based hence the (CreateView) argument that was imported above
-class BassCreate(CreateView):
+class BassCreate(LoginRequiredMixin, CreateView):
   model = Bass
   fields = ['manufacturer', 'model_name', 'description']
   #? alternatively:  fields = ['manufacturer', 'model', 'description']
@@ -48,16 +53,17 @@ class BassCreate(CreateView):
     form.instance.user = self.request.user
     return super().form_valid(form)
 
-class BassUpdate(UpdateView):
+class BassUpdate(LoginRequiredMixin, UpdateView):
   model = Bass
   # Let's disallow the renaming of a cat by excluding the name field!
   fields = ['manufacturer', 'model_name', 'description']
 
-class BassDelete(DeleteView):
+class BassDelete(LoginRequiredMixin, DeleteView):
   model = Bass
   success_url = '/basses/'
 
 # amps list view
+@login_required
 def amps_index(request):
   amps = Amp.objects.all()
   return render(request, 'amps/index.html', {'amps': amps})
@@ -66,15 +72,16 @@ class AmpCreate(CreateView):
   model = Amp
   fields = '__all__'
 
+@login_required
 def amps_detail(request, amp_id):
   amp = Amp.objects.get(id=amp_id)
   return render(request, 'amps/detail.html', {'amp':amp})
   
-class AmpUpdate(UpdateView):
+class AmpUpdate(LoginRequiredMixin, UpdateView):
   model = Amp
   fields = '__all__'
 
-class AmpDelete(DeleteView):
+class AmpDelete(LoginRequiredMixin, DeleteView):
   model = Amp
   success_url = '/amps/'
 
