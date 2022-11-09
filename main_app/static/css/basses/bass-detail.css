@@ -32,7 +32,7 @@
   margin-top: 20px;
 }
 
-.feedings-toy-container {
+.endorsement-amp-container {
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
@@ -49,7 +49,7 @@
   margin: 0 8px;
 }
 
-.toy-container {
+.amp-container {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -62,21 +62,20 @@
   margin-right: 10px;
 }
 
-.unfed,
-.fed,
-.no-toys,
-.all-toys {
+
+.no-amps,
+.all-amps {
   margin: 0;
   font-weight: bold;
 }
 
-.unfed,
-.no-toys {
+
+.no-amps {
   color: var(--danger);
 }
 
-.fed,
-.all-toys {
+
+.all-amps {
   color: var(--submit);
 }
 
@@ -102,7 +101,7 @@
   margin: 5px 0;
 }
 
-.feedings-toy-container > section {
+.endorsement-amp-container > section {
   width: 80%;
   min-width: 360px;
   border: var(--borders);
@@ -124,14 +123,14 @@
   margin-left: 16px;
 }
 
-.feedings h2,
-.toys h2 {
+.endorsements h2,
+.amps h2 {
   font-size: 3.2rem;
   margin: 0;
 }
 
-.feedings h3,
-.toys h3 {
+.endorsements h3,
+.amps h3 {
   font-size: var(--font-xl);
   margin: 10px 0;
 }
@@ -148,38 +147,38 @@
   padding: 3px;
 }
 
-.feedings table {
+.endorsements table {
   width: calc(100% - 16px);
   text-align: left;
   border-collapse: collapse;
   margin: 0 8px;
 }
 
-.feedings td {
+.endorsements td {
   padding: 8px 5px;
   font-size: var(--font-reg);
 }
 
-.feedings th {
+.endorsements th {
   font-size: var(--font-l);
   padding: 5px 5px 0;
   border-bottom: rgb(36, 116, 248) solid 2px;
 }
 
-.feedings tr:nth-child(even) {
+.endorsements tr:nth-child(even) {
   background-color: #f3f3fd;
 }
 
-.toy-container p {
+.amp-container p {
   margin: 12px 0;
 }
 
-.toy-container a {
+.amp-container a {
   text-decoration: none;
   color: #111;
 }
 
-.toy-container .btn {
+.amp-container .btn {
   padding: 3px 10px;
   margin-left: 10px;
 }
@@ -216,19 +215,19 @@
     margin-right: 25px;
   }
 
-  .feedings-toy-container {
+  .endorsement-amp-container {
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
   }
 
-  .feedings-toy-container > section {
+  .endorsement-amp-container > section {
     width: 45%;
   }
 }
 
 @media only screen and (min-width: 1024px) {
-  .feedings-toy-container {
+  .endorsement-amp-container {
     padding: 0 40px;
   }
 }

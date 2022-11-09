@@ -28,8 +28,8 @@
     </div>
   </div>
 </section>
-<div class="feedings-toy-container">
-  <section class="feedings">
+<div class="endorsement-amp-container">
+  <section class="endorsements">
     <div class="subsection-title">
       <h2>Artist Endorsements</h2>
       <img 
@@ -61,14 +61,14 @@
       </tbody>
     </table>
   </section>
-  <section class="toys">
+  <section class="amps">
     <div class="subsection-title">
       <h2>Plug into an Amp</h2>
     </div>
     <div class="subsection-content">
       {% if bass.amps.count %}
         {% for amp in bass.amps.all %}
-          <div class="toy-container">
+          <div class="amp-container">
             <div 
               class="color-block"
               style="background-color: blue"
@@ -79,15 +79,14 @@
           </div>
         {% endfor %}
       {% else %}
-        <p class="no-toys">the bass isn't plugged into any amps 😞</p>
+        <p class="no-amps">the bass isn't plugged into any amps 😞</p>
       {% endif %}
     </div>
     <h3>Available Amps</h3>
     <div class="subsection-content">
-      {% comment %} We'll display available toys here {% endcomment %}
       {% if amps.count %}
         {% for amp in amps.all %}
-          <div class="toy-container">
+          <div class="amp-container">
             <div 
               class="color-block"
               style="background-color: red"
@@ -102,7 +101,7 @@
           </div>
         {% endfor %}
       {% else %}
-        <p class="all-toys">
+        <p class="all-amps">
           {{bass.model_name}} is already connected to all amps 🥳
         </p>
       {% endif %}
