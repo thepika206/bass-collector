@@ -16,7 +16,7 @@ main > section {
 }
 
 .header-logo-container {
-  display: none;
+  /* display: none; */
 }
 
 #logo-container {
