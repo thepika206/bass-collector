@@ -13,7 +13,8 @@
 
 <section class="bass-container">
   <div class="bass-img">
-    <img 
+    <img
+      id="bass-image"
       src="{% static 'images/basses/fender-jazz-200.png' %}" 
       alt="A bass guitar"
     >
@@ -59,6 +60,53 @@
         {% endfor %}
       </tbody>
     </table>
+  </section>
+  <section class="toys">
+    <div class="subsection-title">
+      <h2>Plug into an Amp</h2>
+    </div>
+    <div class="subsection-content">
+      {% if bass.amps.count %}
+        {% for amp in bass.amps.all %}
+          <div class="toy-container">
+            <div 
+              class="color-block"
+              style="background-color: blue"
+            ></div>
+            <a href="{% url 'amps_detail' amp.id %}">
+              <p>{{ amp.manufacturer }} {{ amp.model_name }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="no-toys">the bass isn't plugged into any amps 😞</p>
+      {% endif %}
+    </div>
+    <h3>Available Amps</h3>
+    <div class="subsection-content">
+      {% comment %} We'll display available toys here {% endcomment %}
+      {% if amps.count %}
+        {% for amp in amps.all %}
+          <div class="toy-container">
+            <div 
+              class="color-block"
+              style="background-color: red"
+            ></div>
+            <a href="{% url 'amps_detail' amp.id %}">
+              <p>{{ amp.manufacturer }} {{ amp.model_name }}</p>
+            </a>
+            <form action="{% url 'assoc_amp' bass.id amp.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn submit">Connect</button>
+            </form>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="all-toys">
+          {{bass.model_name}} is already connected to all amps 🥳
+        </p>
+      {% endif %}
+    </div>
   </section>
 </div>
 

@@ -29,10 +29,20 @@ def basses_index(request):
 @login_required
 def basses_detail(request, bass_id):
   bass = Bass.objects.get(id=bass_id)
+  # Get the amps the bass doesn't have
+  amps_bass_doesnt_have = Amp.objects.exclude(
+    id__in = bass.amps.all().values_list('id'),
+  ).filter(user=request.user)
+  print(request.user)
   musician_form = MusicianForm()
   return render(request, 'basses/detail.html', {
-    'bass':bass, 'musician_form': musician_form
+    'bass':bass, 'musician_form': musician_form, 'amps': amps_bass_doesnt_have
   })
+
+@login_required
+def assoc_amp(request, bass_id, amp_id):
+  Bass.objects.get(id=bass_id).amps.add(amp_id)
+  return redirect('basses_detail', bass_id=bass_id)
 
 @login_required
 def add_musician(request, bass_id):

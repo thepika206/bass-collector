@@ -7,6 +7,12 @@
   /* border: 1px solid red; */
 }
 
+#bass-image{
+  object-fit: cover;
+  overflow: hidden;
+  width: 100%;
+}
+
 .bass-img {
   min-width: 100px;
   max-width: 350px;
