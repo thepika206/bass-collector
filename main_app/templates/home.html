@@ -7,14 +7,8 @@
 
 {% block content %}
 
-<section class="logo-container">
-  <div class="bass-container">
-    <img src="{% static 'images/bass_logo.svg' %}" alt="A bass guitar" />
-  </div>
-  <img 
-  src="{% static 'images/bass-collector1.png' %}" 
-  alt="Text reads: Bass Collector"
-/>
+<section id="logo-container">
+    <img id="home-image" src="{% static 'images/oleg-ivanov-G_3NA_UoVyo-unsplash.jpg' %}" alt="A bass guitar" />
 </section>
 
 {% if not user.is_authenticated %} 

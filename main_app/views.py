@@ -90,7 +90,7 @@ def amps_detail(request, amp_id):
   
 class AmpUpdate(LoginRequiredMixin, UpdateView):
   model = Amp
-  fields = '__all__'
+  fields = ['manufacturer', 'model_name', 'description']
 
 class AmpDelete(LoginRequiredMixin, DeleteView):
   model = Amp

@@ -19,13 +19,17 @@ main > section {
   display: none;
 }
 
-.logo-container {
+#logo-container {
   max-width: 375px;
+  padding: 0;
 }
 
-.bass-container {
-  /* width: 80%; */
-  width: 50%;
+
+#home-image{
+  
+  max-height: 300px;
+  object-fit: cover;
+  overflow: hidden;
 }
 
 .login {
@@ -81,7 +85,10 @@ main > section {
     width: 100%;
   }
 
-  .logo-container {
-    max-width: 520px;
+  #home-image{
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    max-height: 100%;
   }
 }
