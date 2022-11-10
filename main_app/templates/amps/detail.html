@@ -21,10 +21,15 @@
   <div class="details">
     <h1>{{ amp.manufacturer }}-{{ amp.model_name }}</h1>
     <p>{{ amp.description }}</p>
-    <div class="actions">
-      <a href="{% url 'amps_update' amp.id %}" class="btn warn">Edit</a>
-      <a href="{% url 'amps_delete' amp.id %}" class="btn danger">Delete</a>
-    </div>
+    {% if amp.user == user %}
+      <h3>this amp was created by you</h3>
+      <div class="actions">
+        <a href="{% url 'amps_update' amp.id %}" class="btn warn">Edit</a>
+        <a href="{% url 'amps_delete' amp.id %}" class="btn danger">Delete</a>
+      </div>
+    {% else %}
+      <h3>this amp was created by {{amp.user}}</h3>
+    {% endif %}
   </div>
 </section>
 
