@@ -7,15 +7,13 @@
 
 {% block content %}
 
-<div class="page-header">
-  {% if amp %}
+
+{% if amp %}
   <h1>Edit {{ amp.manufacturer}}-{{amp.model_name}}</h1>
 {% else %}
   <h1>Add an Amp</h1>
 {% endif %}
 
-  {% comment %} <img src="{% static '' %}" alt=""/> {% endcomment %}
-</div>
 {% comment %} 
   Leaving the action empty makes the form post to the same url used to display it
 {% endcomment %}
