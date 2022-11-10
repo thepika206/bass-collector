@@ -22,18 +22,18 @@ href="{% static 'css/basses/bass-detail.css' %}"
   <div class="bass-details">
     <h1>{{ bass.manufacturer }}-{{ bass.model_name }}</h1>
     <p>{{ bass.description }}</p>
-    <h3>This bass is owned by {{bass.user}}</h3>
     {% if bass.user == user %}
       <div class="bass-actions">
         <a href="{% url 'basses_update' bass.id %}" class="btn warn">Edit</a>
         <a href="{% url 'basses_delete' bass.id %}" class="btn danger">Delete</a>
       </div>
+    {% else %}
+      <h3>This bass is owned by {{bass.user}}</h3>
     {% endif %}
   </div>
-    
-    
-    
-</section>
+</section> 
+{% comment %} end of bass section {% endcomment %}
+
 <div class="endorsement-amp-container">
   <section class="endorsements">
     <div class="subsection-title">
@@ -43,76 +43,85 @@ href="{% static 'css/basses/bass-detail.css' %}"
       alt="bass guitar"
       />
     </div>
-    <h3>Add an Artist</h3>
-    <form
-    action="{% url 'add_musician' bass.id %}"
-    method="post" 
-    class="subsection-content"
-    >
-    {% csrf_token %}
-    {{ musician_form.as_p }}
-    <button type="submit" class="btn submit">Add Endorsement</button>
-  </form>
-  <h3>Endorsement List</h3>
-  <table>
-    <thead>
-      <tr><th>Artist Name</th></tr>
-    </thead>
-    <tbody>
-      {% for musician in bass.musician_set.all %}
-      <tr>
-        <td>{{musician.name}}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</section>
-  <section class="amps">
-    <div class="subsection-title">
-      <h2>Plug into an Amp</h2>
-    </div>
-    <div class="subsection-content">
-      {% if bass.amps.count %}
-      {% for amp in bass.amps.all %}
-      <div class="amp-container">
-        <div 
-        class="color-block"
-        style="background-color: blue"
-        ></div>
-        <a href="{% url 'amps_detail' amp.id %}">
-              <p>{{ amp.manufacturer }} {{ amp.model_name }}</p>
-            </a>
-          </div>
+
+    {% if bass.user == user %}
+      <h3>Add an Artist</h3>
+      <form
+      action="{% url 'add_musician' bass.id %}"
+      method="post" 
+      class="subsection-content"
+      >
+        {% csrf_token %}
+        {{ musician_form.as_p }}
+        <button type="submit" class="btn submit">Add Endorsement</button>
+      </form>
+    {% endif %}
+
+    <h3>Endorsement List</h3>
+    <table>
+      <thead>
+        <tr><th>Artist Name</th></tr>
+      </thead>
+      <tbody>
+        {% for musician in bass.musician_set.all %}
+        <tr>
+          <td>{{musician.name}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  {% if bass.user == user  %}
+    <section class="amps">
+      <div class="subsection-title">
+          <h2>Plug into an Amp</h2>
+      </div>
+      <div class="subsection-content">
+        {% if bass.amps.count %}
+          {% for amp in bass.amps.all %}
+            <div class="amp-container">
+              <div 
+              class="color-block"
+              style="background-color: blue"
+              ></div>
+              <a href="{% url 'amps_detail' amp.id %}">
+                <p>{{ amp.manufacturer }} {{ amp.model_name }}</p>
+              </a>
+            </div>
           {% endfor %}
-          {% else %}
+        {% else %}
           <p class="no-amps">the bass isn't plugged into any amps 😞</p>
-          {% endif %}
-        </div>
-        <h3>Available Amps</h3>
-        <div class="subsection-content">
-          {% if amps.count %}
+        {% endif %}
+      </div>
+      <h3>Available Amps</h3>
+      <div class="subsection-content">
+        {% if amps.count %}
           {% for amp in amps.all %}
-          <div class="amp-container">
-            <div 
-            class="color-block"
-            style="background-color: red"
-            ></div>
-            <a href="{% url 'amps_detail' amp.id %}">
-              <p>{{ amp.manufacturer }} {{ amp.model_name }}</p>
-            </a>
-            <form action="{% url 'assoc_amp' bass.id amp.id %}" method="post">
-              {% csrf_token %}
-              <button type="submit" class="btn submit">Connect</button>
-            </form>
-          </div>
+            <div class="amp-container">
+              <div 
+              class="color-block"
+              style="background-color: red"
+              ></div>
+              <a href="{% url 'amps_detail' amp.id %}">
+                <p>{{ amp.manufacturer }} {{ amp.model_name }}</p>
+              </a>
+              <form action="{% url 'assoc_amp' bass.id amp.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn submit">Connect</button>
+              </form>
+            </div>
           {% endfor %}
-          {% else %}
+        {% else %}
           <p class="all-amps">
             {{bass.model_name}} is already connected to all amps 🥳
           </p>
-          {% endif %}
-        </div>
-      </section>
-    </div>
-    
+        {% endif %}
+      </div>
+    </section>
+  {% endif %} 
+  {% comment %} "bass.user == user" {% endcomment %}
+</div> 
+{% comment %} "endorsement-amp-container" {% endcomment %}
+
     {% endblock %}
