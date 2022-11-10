@@ -30,9 +30,7 @@ def basses_index(request):
 def basses_detail(request, bass_id):
   bass = Bass.objects.get(id=bass_id)
   # Get the amps the bass doesn't have
-  amps_bass_doesnt_have = Amp.objects.exclude(
-    id__in = bass.amps.all().values_list('id'),
-  ).filter(user=request.user)
+  amps_bass_doesnt_have = Amp.objects.exclude( id__in = bass.amps.all().values_list('id')).filter(user=request.user)
   print(request.user)
   musician_form = MusicianForm()
   return render(request, 'basses/detail.html', {
@@ -51,7 +49,7 @@ def add_musician(request, bass_id):
     new_musician = form.save(commit=False)
     new_musician.bass_id = bass_id
     new_musician.save()
-  return redirect('basses_detail', bass_id=bass_id)
+  return redirect('basses_detail', bass_id=bass_id)         
 
 class BassCreate(LoginRequiredMixin, CreateView):
   model = Bass
@@ -98,6 +96,7 @@ class AmpDelete(LoginRequiredMixin, DeleteView):
 
 class Home(LoginView):
   template_name = 'home.html'
+  
 
 def signup(request):
   error_message = ''

@@ -35,7 +35,7 @@
           <li><a href="{% url 'amps_index'%}">Amps</a></li>
           <li><a href="{% url 'amps_create'%}">Add an Amp</a></li>
           <li><a href="{% url 'about' %}">About</a></li>
-          <li><a href="{% url 'logout' %}">Log out</a></li>
+          <li><a href="{% url 'logout' %}">{{user.first_name}} - Log out</a></li>
         {% else %}
           <li><a href="{% url 'about' %}">About</a></li>
           <li><a href="{% url 'home' %}">Login</a></li>
