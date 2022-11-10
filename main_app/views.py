@@ -23,6 +23,7 @@ def about(request):
 #! bass views
 @login_required
 def basses_index(request):
+  # basses = Bass.objects.all()
   basses = Bass.objects.filter(user=request.user)
   return render(request, 'basses/index.html', {'basses':basses})
 
@@ -71,7 +72,8 @@ class BassDelete(LoginRequiredMixin, DeleteView):
 #! amp views
 @login_required
 def amps_index(request):
-  amps = Amp.objects.filter(user=request.user)
+  amps = Amp.objects.all()
+  # amps = Amp.objects.filter(user=request.user)
   return render(request, 'amps/index.html', {'amps': amps})
 
 class AmpCreate(CreateView):

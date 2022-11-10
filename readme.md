@@ -6,11 +6,18 @@
 # Table of Contents
 - [About Bass Collector](#about-bass-collector)
 - [Table of Contents](#table-of-contents)
+- [Features](#features)
 - [Lessons learned](#lessons-learned)
 - [Why Basses?](#why-basses)
 - [Icebox](#icebox)
 - [Credits](#credits)
   - [Bass photos from Unsplashed](#bass-photos-from-unsplashed)
+
+
+# Features
+- Access to edit and delete basses and amps for the owner only
+- Ability to add an artist endorsement for own bass
+- Ability to plug your bass into an amp 
 
 # Lessons learned
 - The requirements for the app were designed around demonstrating the various relationships learned in course, so some features seemed shoe-horned in.
