@@ -1,23 +1,38 @@
 # About Bass Collector
 - This is a Full CRUD Django app connected to a PostgreSQL DB.
-- try it out with this deployed linked
+- try it out with this deployed link
+
+![Bass Collector Screen Shot](https://i.imgur.com/UHjDoj4.pngv "Bass Collector Screen Shot")
 
 
 # Table of Contents
 - [About Bass Collector](#about-bass-collector)
 - [Table of Contents](#table-of-contents)
 - [Features](#features)
+- [Technologies](#technologies)
 - [Lessons learned](#lessons-learned)
 - [Why Basses?](#why-basses)
 - [Icebox](#icebox)
 - [Credits](#credits)
-  - [Bass photos from Unsplashed](#bass-photos-from-unsplashed)
+    - [Project creator](#project-creator)
+    - [Bass and Amp photos](#bass-and-amp-photos)
+    - [Favicon created in Favicon.io](#favicon-created-in-faviconio)
 
 
 # Features
 - Access to edit and delete basses and amps for the owner only
 - Ability to add an artist endorsement for own bass
 - Ability to plug your bass into an amp 
+
+![Bass Collector Screen Shot](https://i.imgur.com/cW6guGC.png "Bass Collector Screen Shot")
+
+# Technologies
+- Django
+- PostgreSQL
+- Python
+- HTML
+- CSS
+- Bootstrap CSS framework
 
 # Lessons learned
 - The requirements for the app were designed around demonstrating the various relationships learned in course, so some features seemed shoe-horned in.
@@ -33,6 +48,11 @@
   - allow user to create rigs to save combinations of basses and amps with notes about why this is a good pairing
   
 # Credits
-  ## Bass photos from Unsplashed
-  - https://images.unsplash.com/photo-1543060749-aa3f115aad09?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80
-  - https://unsplash.com/photos/Fx5rrxSaUtI?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink
+  ### Project creator
+  - Patrick Cheung 2022
+  ### Bass and Amp photos
+  - Fender Jazz Bass: https://www.rufusguitarshop.com/
+  - Ampeg SVT Amp Head: Ampeg.com
+  - Close up of bass player hands: https://unsplash.com/photos/Fx5rrxSaUtI?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink
+  - A row of basses: https://images.unsplash.com/photo-1543060749-aa3f115aad09?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80
+  ### Favicon created in Favicon.io
