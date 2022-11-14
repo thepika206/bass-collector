@@ -170,7 +170,7 @@ nav li {
   font-size: var(--font-reg);
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 850px) {
   header {
     position: sticky;
     display: flex;
