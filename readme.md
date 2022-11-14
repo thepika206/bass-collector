@@ -1,6 +1,6 @@
 # About Bass Collector
 - This is a Full CRUD Django app connected to a PostgreSQL DB.
-- try it out with this deployed link
+- [checkout the deployed app](https://bass-and-amp-collector.herokuapp.com/) 
 
 ![Bass Collector Screen Shot](https://i.imgur.com/UHjDoj4.pngv "Bass Collector Screen Shot")
 
