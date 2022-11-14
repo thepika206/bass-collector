@@ -11,28 +11,28 @@
 
 {% block content %}
 
-<h1>Bass List</h1>
-<section class="card-container">
-  {% if basses.length == 0 %}
-  {% for bass in basses %}
-  <div class="card">
-    <a href="{% url 'basses_detail' bass.id %}">
-      <div class="card-content">
-        <div class="card-img-container">
-          <img 
-              src="{% static '/images/freestocks-Fx5rrxSaUtI-unsplash.jpg' %}"
-              alt="A bass guitar"
-            >
-          </div>
-          <h2 class="card-title">{{ bass.manufacturer }}-{{ bass.model_name }}</h2>
-          <p>{{ bass.description }}</p>
+  <h1>Bass List</h1>
+  {% if basses %}
+    <section class="card-container">
+      {% for bass in basses %}
+        <div class="card">
+          <a href="{% url 'basses_detail' bass.id %}">
+            <div class="card-content">
+              <div class="card-img-container">
+                <img 
+                    src="{% static '/images/freestocks-Fx5rrxSaUtI-unsplash.jpg' %}"
+                    alt="A bass guitar"
+                  >
+              </div>
+              <h2 class="card-title">{{ bass.manufacturer }}-{{ bass.model_name }}</h2>
+              <p>{{ bass.description }}</p>
+            </div>
+          </a>
         </div>
-      </a>
-    </div>
-  </section>
-  {% endfor %}
+      {% endfor %}
+    </section>
   {% else %}
     <h2>No basses in your collection yet.</h2>
   {% endif %}
-
+  
 {% endblock %}

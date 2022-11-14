@@ -3,6 +3,10 @@ h1 {
   text-align:  center;
   font-size: 42px;
 }
+h2 {
+  text-align:  center;
+}
+
 
 .card-container {
   padding: 0 30px;
