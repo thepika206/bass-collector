@@ -19,10 +19,14 @@
           <a href="{% url 'basses_detail' bass.id %}">
             <div class="card-content">
               <div class="card-img-container">
-                <img 
+                {% comment %} <img 
                     src="{% static '/images/freestocks-Fx5rrxSaUtI-unsplash.jpg' %}"
                     alt="A bass guitar"
-                  >
+                  > {% endcomment %}
+                <img 
+                  src="{% static 'images/amps/svt-200.png' %}" 
+                  alt="A bass amp"
+                >  
               </div>
               <h2 class="card-title">{{ bass.manufacturer }}-{{ bass.model_name }}</h2>
               <p>{{ bass.description }}</p>
@@ -34,5 +38,5 @@
   {% else %}
     <h2>No basses in your collection yet.</h2>
   {% endif %}
-  
+
 {% endblock %}
